@@ -132,6 +132,8 @@ final class StoreBuilder
      */
     public function make()
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Store\FileStore.php';
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Store\File\paths.php';
         return new FileStore(
             Paths::filePaths($this->paths, $this->names),
             $this->shortCircuit,

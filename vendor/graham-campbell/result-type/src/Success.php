@@ -21,6 +21,8 @@ use PhpOption\Some;
  * @template E
  * @extends \GrahamCampbell\ResultType\Result<T,E>
  */
+require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\graham-campbell\result-type\src\Result.php';
+
 final class Success extends Result
 {
     /**

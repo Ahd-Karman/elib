@@ -102,6 +102,9 @@ final class RepositoryBuilder
      */
     private static function defaultAdapters()
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Repository\Adapter\ServerConstAdapter.php';
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Repository\Adapter\EnvConstAdapter.php';
+
         foreach (self::DEFAULT_ADAPTERS as $adapter) {
             $instance = $adapter::create();
             if ($instance->isDefined()) {
@@ -256,6 +259,11 @@ final class RepositoryBuilder
      */
     public function make()
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Repository\Adapter\MultiReader.php';
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Repository\Adapter\MultiWriter.php';
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Repository\Adapter\ImmutableWriter.php';
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Repository\AdapterRepository.php';
+
         $reader = new MultiReader($this->readers);
         $writer = new MultiWriter($this->writers);
 

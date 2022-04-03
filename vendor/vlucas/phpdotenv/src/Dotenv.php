@@ -82,6 +82,10 @@ class Dotenv
      */
     public static function create(RepositoryInterface $repository, $paths, $names = null, bool $shortCircuit = true, string $fileEncoding = null)
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Store\StoreBuilder.php';
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Parser\Parser.php';
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Loader\Loader.php';
+
         $builder = $names === null ? StoreBuilder::createWithDefaultName() : StoreBuilder::createWithNoNames();
 
         foreach ((array) $paths as $path) {
@@ -147,6 +151,7 @@ class Dotenv
      */
     public static function createImmutable($paths, $names = null, bool $shortCircuit = true, string $fileEncoding = null)
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Repository\RepositoryBuilder.php';
         $repository = RepositoryBuilder::createWithDefaultAdapters()->immutable()->make();
 
         return self::create($repository, $paths, $names, $shortCircuit, $fileEncoding);

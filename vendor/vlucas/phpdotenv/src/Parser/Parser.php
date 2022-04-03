@@ -9,6 +9,7 @@ use Dotenv\Util\Regex;
 use GrahamCampbell\ResultType\Result;
 use GrahamCampbell\ResultType\Success;
 
+require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Parser\ParserInterface.php';
 final class Parser implements ParserInterface
 {
     /**
@@ -22,6 +23,10 @@ final class Parser implements ParserInterface
      */
     public function parse(string $content)
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Util\Regex.php';
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Parser\Lines.php';
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Parser\EntryParser.php';
+
         return Regex::split("/(\r\n|\n|\r)/", $content)->mapError(static function () {
             return 'Could not split into separate lines.';
         })->flatMap(static function (array $lines) {

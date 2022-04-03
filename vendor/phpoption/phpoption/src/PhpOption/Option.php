@@ -45,6 +45,7 @@ abstract class Option implements IteratorAggregate
      */
     public static function fromValue($value, $noneValue = null)
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\phpoption\phpoption\src\PhpOption\None.php';
         if ($value === $noneValue) {
             return None::create();
         }

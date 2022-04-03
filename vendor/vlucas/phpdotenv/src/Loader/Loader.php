@@ -7,6 +7,7 @@ namespace Dotenv\Loader;
 use Dotenv\Parser\Entry;
 use Dotenv\Parser\Value;
 use Dotenv\Repository\RepositoryInterface;
+require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Loader\LoaderInterface.php';
 
 final class Loader implements LoaderInterface
 {
@@ -23,6 +24,8 @@ final class Loader implements LoaderInterface
      */
     public function load(RepositoryInterface $repository, array $entries)
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Loader\Resolver.php';
+
         return \array_reduce($entries, static function (array $vars, Entry $entry) use ($repository) {
             $name = $entry->getName();
 

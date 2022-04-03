@@ -625,6 +625,63 @@
   </form>
 </div>
 -->
+<?php 
+require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Dotenv.php';
+//require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\app\system\database.php';
+
+use Dotenv\Dotenv;
+//use database\Database;
+
+$dotenv = Dotenv::createImmutable(dirname(__DIR__));//createImmutable(__DIR__);
+$dotenv->load();
+
+
+$config=array(
+  'servername'=>$_ENV['DB_SERVER_NAME'],
+  'dbname'=>$_ENV['DB_NAME'],
+  'dbpass'=>$_ENV['DB_PASSWORD'],
+  'username'=>$_ENV['DB_USERNAME']
+
+);
+
+$table_data=array(
+  'name' => '', 
+  'image' => '' ,
+);
+class Database{
+  public $pdo;
+  function __construct($dbConfig)
+  {
+      $dsn="mysql:host=".$dbConfig['servername'].";dbname=".$dbConfig['dbname']."";
+      $username=$dbConfig["username"];
+      $pass=$dbConfig["dbpass"];
+      $this->pdo=new \PDO($dsn,$username,$pass);
+      //echo ("Connected") ;
+  }
+
+  public function insert($table_data){
+    $columns = '';
+    $values = '';
+
+    foreach ($table_data as $key => $value) {
+    $columns .= "`$key` ,";
+    $values .= "'$value' ,";
+    }
+
+    $columns = substr($columns, 0, -1);
+    $values = substr($values, 0, -1);
+
+    $this->db_query = "INSERT INTO `{$this->table_name}` ($columns) VALUES ({$values})";
+
+    return $this;
+}
+
+}
+//require_once '..\system\database.php';
+$db = new Database($config);
+$db-> insert('categories' , 'name' , 'Politics');
+
+?>
 <h1> Done !</h1>
 
 

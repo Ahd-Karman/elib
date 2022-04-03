@@ -7,6 +7,7 @@ namespace Dotenv\Repository;
 use Dotenv\Repository\Adapter\ReaderInterface;
 use Dotenv\Repository\Adapter\WriterInterface;
 
+require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Repository\RepositoryInterface.php';
 final class AdapterRepository implements RepositoryInterface
 {
     /**

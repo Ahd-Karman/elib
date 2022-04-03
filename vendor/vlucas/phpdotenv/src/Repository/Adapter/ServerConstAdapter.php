@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Dotenv\Repository\Adapter;
 
+require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Repository\Adapter\AdapterInterface.php';
 use PhpOption\Option;
 use PhpOption\Some;
 
@@ -26,6 +27,7 @@ final class ServerConstAdapter implements AdapterInterface
      */
     public static function create()
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\phpoption\phpoption\src\PhpOption\some.php';
         /** @var \PhpOption\Option<AdapterInterface> */
         return Some::create(new self());
     }

@@ -69,6 +69,7 @@ final class Reader
      */
     private static function readFromFile(string $path, string $encoding = null)
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Util\Str.php';
         /** @var Option<string> */
         $content = Option::fromValue(@\file_get_contents($path), false);
 

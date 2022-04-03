@@ -45,6 +45,8 @@ final class EntryParser
      */
     public static function parse(string $entry)
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Parser\Entry.php';
+
         return self::splitStringIntoParts($entry)->flatMap(static function (array $parts) {
             [$name, $value] = $parts;
 
@@ -153,6 +155,8 @@ final class EntryParser
      */
     private static function parseValue(string $value)
     {
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Parser\Lexer.php';
+        require_once 'C:\xampp\htdocs\CodingAcademyTraining\elib\vendor\vlucas\phpdotenv\src\Parser\Value.php';
         if (\trim($value) === '') {
             return Success::create(Value::blank());
         }
